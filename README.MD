@@ -41,7 +41,7 @@ $ scriptname -f domain_list.txt
 
 ## Version History
 
-* 0.0.1
+* 0.1.0
 
 ## Licence
 

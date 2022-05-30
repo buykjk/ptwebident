@@ -1,6 +1,8 @@
 from dataclasses import dataclass, asdict
 from enum import Enum
-from results_data import AnalysisData
+
+# Custom modules
+from ptwebident.results_data import AnalysisData
 
 
 class DatasetLabel(Enum):

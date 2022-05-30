@@ -7,41 +7,82 @@
                                  |_|
 ```
 
-# scriptname
+# ptwebident
+
+This tool identifies the technologies used in a web application
+(operating system, web server, programming language).
+It is a part of the Penterep platform.
 
 ## Installation
 
 ```
-$ git clone scriptname
-$ cd scriptname && sudo pip install .
+$ git clone https://github.com/buykjk/ptwebident.git
+$ cd ptwebident && sudo pip install .
 ```
 
-## Installation (ptmanager) 
-
-```
-$ sudo ptmanager -ut scriptname
-```
+This tools uses Nmap to perform OS detection scanning.
+To use this functionality, Nmap has to be installed.
 
 ## Options
+
+### General
+
 ```
--u   --url         <url>           Connect to URL
--c   --cookie      <cookie>        Set cookie
--H   --headers     <header:value>  Set custom headers
--ua  --user-agent  <user-agent>    Set user agent
--j   --json                        Enable JSON output
--v   --version                     Show script version and exit
--h   --help                        Show this help message and exit
+-u  --url           <url>           Test specified URL
+-d  --delay         <delay>         Delay between each HTTP request (milliseconds)
+-p  --proxy         <proxy>         Set proxy (e.g. http://127.0.0.1:8080)
+-c  --cookies       <cookie=value>  Set cookie(s)
+-H  --headers       <header:value>  Set custom header(s)
+-ua --user-agent    <user-agent>    Set user agent
+    --ua-random                     Use a random user agent
+    --probe                         Health-check before analysis
+-j  --json                          Output in JSON format
+    --write         <file>          Append CSV analysis data to a file
+    --write-header                  Include CSV headers in file write (--write extension)
+-v  --version                       Show script version and exit
+-h  --help                          Show help message and exit
 ```
 
+### Identification methods
+
+--all               All identification methods
+
+--chk               All --chk methods
+--chk-headers       Check response headers
+--chk-default-page  Check web server's default page
+--chk-icons         Check presence of /icons folder and its contents
+--chk-rsvd-names    Check responses to reserved and special names
+--chk-nonexistent   Check response to a non-existent resource request
+
+--det               All --det methods
+--det-case-sens     Detect case sensitivity
+--det-file-ext      Detect file extension
+
+--bad               All --bad methods
+--bad-url           Illegal characters in URL
+--bad-method        Invalid HTTP request methods
+--bad-http-vsn      Invalid HTTP protocol version
+
+--long              All --long methods
+--long-url          Increasingly long URL
+--long-headers      Increasingly long headers
+
+--nmap-os           Nmap OS detection
+
 ## Usage examples
+
 ```
-$ scriptname -u example.com
-$ scriptname -f domain_list.txt
+$ sudo ptwebident -u http://example.com/ --all
+$ ptwebident -u http://example.com:8080/ --det -j
+$ ptwebident -u http://example.com/ --chk --bad --long
+$ ptwebident -u http://example.com/ --chk-headers --proxy http://127.0.0.1:8080
+$ sudo ptwebident -u http://example.com/ --nmap-os
+$ sudo ptwebident -u http://example.com/ --all --write output.csv --write-header
 ```
 
 ## Version History
 
-* 0.1.0
+* 0.1 - first public release as a bachelor thesis project
 
 ## Licence
 

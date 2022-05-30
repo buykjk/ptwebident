@@ -11,11 +11,10 @@ from enum import auto, Flag
 from ptlibs import ptmisclib
 from ptlibs.ptjsonlib import ptjsonlib
 
-
 # Custom modules
-from analysis import Analysis
-from csvformat import DatasetLabel, append_results
-from results_data import NmapData
+from ptwebident.analysis import Analysis
+from ptwebident.csvformat import DatasetLabel, append_results
+from ptwebident.results_data import NmapData
 
 
 # (Edited) regEx from https://github.com/django/django/blob/stable/1.3.x/django/core/validators.py#L45

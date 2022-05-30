@@ -11,8 +11,8 @@ from http.client import HTTPConnection
 from typing import Callable
 
 # Custom modules
-from csvformat import DatasetLabel, Labeled, analysisToCsv
-from results_data import (
+from ptwebident.csvformat import DatasetLabel, Labeled, analysisToCsv
+from ptwebident.results_data import (
     AnalysisData,
     HeadersData,
     IconsData,
@@ -20,8 +20,8 @@ from results_data import (
     NmapData,
     LongSequencesData
 )
-from urlattributes_htmlparser import URLAttributesHTMLParser
-from utils import hash_bytes, random_number, random_string
+from ptwebident.urlattributes_htmlparser import URLAttributesHTMLParser
+from ptwebident.utils import hash_bytes, random_number, random_string
 
 
 class Analysis:

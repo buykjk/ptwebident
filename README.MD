@@ -44,7 +44,7 @@ To use this functionality, Nmap has to be installed.
 ```
 
 ### Identification methods
-
+```
 --all               All identification methods
 
 --chk               All --chk methods
@@ -68,7 +68,7 @@ To use this functionality, Nmap has to be installed.
 --long-headers      Increasingly long headers
 
 --nmap-os           Nmap OS detection
-
+```
 ## Usage examples
 
 ```
